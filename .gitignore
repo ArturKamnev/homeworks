@@ -1,0 +1,12 @@
+__pycache__/
+.venv/
+venv/
+main.py
+
+.env
+
+lessons
+
+*.sqlite
+*.sqlite3
+*.db
