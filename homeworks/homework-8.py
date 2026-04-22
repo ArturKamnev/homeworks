@@ -18,6 +18,7 @@ def drop_table(connection):
 def create_table(connection):
     connection.execute("""
     CREATE TABLE IF NOT EXISTS books (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT,
         author TEXT,
         publication_year INTEGER,
@@ -32,7 +33,14 @@ def create_table(connection):
 def insert_books(connection, books):
     for book in books:
         connection.execute("""
-        INSERT INTO books
+        INSERT INTO books (
+            name,
+            author,
+            publication_year,
+            genre,
+            number_of_pages,
+            number_of_copies
+        )
         VALUES (?, ?, ?, ?, ?, ?)
         """, (
             book.name,

@@ -10,6 +10,8 @@ class Book:
         self.number_of_pages = number_of_pages
         self.number_of_copies = number_of_copies
 
+# Сделал drop_table чтобы мне было удобно отслеживать таблицу просто
+
 def drop_table(connection):
     connection.execute("""
     DROP TABLE IF EXISTS books
@@ -77,8 +79,8 @@ books = [
 
 if __name__ == "__main__":
     connection = sqlite3.connect("homeworks.db")
+    drop_table(connection)
     create_table(connection)
-    insert_books(connection, books)
 
     print(get_all_books(connection))
     print(get_books_by_author(connection, "Артем Беликов"))
